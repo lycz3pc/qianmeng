@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1"/>
+	<title>人才招聘 - 千盟园景</title>
+	<meta content="" name="keywords" />
+	<meta content="" name="description" />
+	<!–[if lt IE9]> 
+		<script src="/plugins/html5.js"></script>
+	<![endif]–>
+	<link rel="stylesheet" href="/css/front/common.css">
+	<link rel="stylesheet" href="/css/front/fa/iconfont.css">
+	<link rel="stylesheet" href="/css/front/main.css">
+</head>
+</head>
+<body>
+	<!-- 顶部导航栏 -->
+    <#include 'header.html'>
+	
+	<div class="center interview">
+		<div class="top_banner">
+			<img src="/images/rczp_banner.jpg" alt="">
+		</div>
+		<div class="set_center">
+			<ul class="view_top">
+				<li>职位：</li>
+				<li <#if !(categoryId??)> class="job_choosed" </#if>><a href="/joinus">全部</a></li>
+				<#if categoryList?exists>
+					<#list categoryList as category>
+					<li <#if categoryId?? && (categoryId == category.id)> class="job_choosed" </#if>><a href="/joinus/${category.id}">${category.categoryName!""}</a></li>
+					</#list>
+				</#if>
+			</ul>
+			<div class="view_btm">
+				<div class="jobs_list">
+                    <ul class="jobs_title clearfix">
+                        <li>职位</li>
+                        <li>地点</li>
+                        <li>发布时间</li>
+                        <li>操作</li>
+                    </ul>
+                    <ul class="jobs_content">
+                        <#if jobs?exists>
+                        <#list jobs as job>
+                    	<li class="clearfix">
+                            <ul class="inactive">
+                                <li class="job_name">
+                                    <span>${job.jobName!""}</span>
+                                    <i class="iconfont icon-arrow-down"></i>
+                                 <!--  <img src="/images/zp_new.png" alt="">  -->
+                                </li>
+                                <li>${job.jobCity!""}</li>
+                                <li>${job.updateTime?string("yyyy年MM月dd日")}</li>
+                                <li class="apply_button" id="apply_button"><a href="mailto:xtdyzjh@qq.com?subject=申请${job.jobName!''}">马上申请</a></li>
+                            </ul>
+                            <div class="job_des">
+                                <div>
+                                ${job.jobDetail!''}
+                                </div>
+                                <a href="mailto:xtdyzjh@qq.com?subject=申请${job.jobName!''}">马上申请</a>
+                            </div>
+                        </li>
+                        </#list>
+                        </#if>
+                    </ul>
+                </div>
+			</div>
+		</div>
+	</div>
+    <#include 'footer.html'>
+</body>
+<script src="/plugins/jquery.min.js"></script>
+<script src="/javascript/front/common.js"></script>
+<script src="/javascript/front/about_sub.js"></script>
+</html>

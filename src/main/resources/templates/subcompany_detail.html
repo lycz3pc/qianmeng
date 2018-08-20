@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1"/>
+	<title>${subcompany.name !""} - 千盟园景</title>
+	<meta content="" name="keywords" />
+	<meta content="" name="description" />
+	<!–[if lt IE9]> 
+		<script src="/plugins/html5.js"></script>
+	<![endif]–>
+	<link rel="stylesheet" href="/css/front/common.css">
+	<link rel="stylesheet" href="/css/front/main.css">
+</head>
+<body>
+    <#include 'header.html'>
+    
+	<div class="center">
+		<div class="top_banner">
+			<img src="/images/gyqm_banne1r.jpg" alt="">
+		</div>
+		<div class="set_center sub_intro">
+			<p>—— ${subcompany.name !""} ——</p>
+			<div class="sub_content">
+				${subcompany.detail !""}
+			</div>
+		</div>
+	</div>
+	
+	<#include 'footer.html'>
+</body>
+<script src="/plugins/jquery.min.js"></script>
+<script src="/javascript/front/common.js"></script>
+</html>

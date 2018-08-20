@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1"/>
+	<title>${article.title !''} - 新闻动态 - 千盟园景</title>
+	<meta content="" name="keywords" />
+	<meta content="" name="description" />
+	<!–[if lt IE9]> 
+		<script src="/plugins/html5.js"></script>
+	<![endif]–>
+	<link rel="stylesheet" href="/css/front/common.css">
+	<link rel="stylesheet" href="/css/front/fa/iconfont.css">
+	<link rel="stylesheet" href="/css/front/main.css">
+</head>
+<body>
+	<#include 'header.html'>
+	
+	<div class="news_detail center">
+		<div class="set_center">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="/article/news">新闻动态</a> <i class="iconfont icon-arrowright"></i>
+                </li>
+                <li>
+                    <a href="/article/news/${category.id!''}"> ${category.categoryName!''}</a> <i class="iconfont icon-arrowright"></i>
+                </li>
+                <li class="active">详情</li>
+            </ul>
+            <div class="news_content clearfix">
+            	<div class="news_left">
+            	 	<h1>${article.title !''}</h1>
+            	 	<p>
+						<a href="javascript:;"><i class="iconfont icon-person-fill"></i><span>${article.author !''}</span></a>
+						<a href="javascript:;"><i class="iconfont icon-icon-time"></i><span>${article.updateTime?string('yyyy-MM-dd HH:mm') !''}</span></a>
+					</p>
+					<div class="left_content">
+						${article.content !''}
+					</div>
+					<div class="left_pages">
+						<#if lastArticle??>
+						<a href="/article/detail/${lastArticle.id !''}">
+							<span>上一篇</span><p>${lastArticle.title!''}</p>
+						</a>
+						</#if>
+						<#if nextArticle??>
+						<a href="/article/detail/${nextArticle.id !''}">
+							<span>下一篇</span><p>${nextArticle.title !''}</p>
+						</a>
+						</#if> 
+					</div>
+            	</div>
+            	<div class="news_right">
+            		<div>
+            			<img src="/images/dt_xg.png" alt="">
+            			<span>相关动态</span>
+            		</div>
+            		<ul>
+            			<#list relarticles as article>
+            			<li>
+            				<a href="/article/detail/${article.id !''}">${article.title !''}</a>
+            				<p class="clearfix"><i class="iconfont icon-icon-time"></i><span>${article.updateTime?string('yyyy-MM-dd') !''}</span></p>
+            			</li>
+            			</#list>
+            		</ul>
+            	</div>
+            </div>
+		</div>
+		<!-- 漂浮框 -->
+		<div class="float_box">
+			<ul class="info_box">
+				<li><a href="javascript:;"><img src="/images/r_top_1.png" alt=""></a></li>
+				<li><a href="javascript:;"><img src="/images/r_phone_2.png" alt=""></a></li>
+				<li><a href="javascript:;"><img src="/images/r_ewm_3.png" alt=""></a></li>
+			</ul>
+			<ul class="open_box">
+				<li class="top_floor">
+					<a href="javascript:;">置顶</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img src="/images/r_phone_22.png" alt="">
+						<span>0731-88008866</span>
+						<div id="contact_line"><span>服务</span><span>热线</span></div>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<p>扫描二维码</p>
+						<p>关注微信公众号</p>
+						<img src="/images/erweima.png" alt="">
+					</a>
+					<div id="weixin"><span>官方</span><span>微信</span></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<#include 'footer.html'>
+</body>
+<script src="/plugins/jquery.min.js"></script>
+<script src="/javascript/front/common.js"></script>
+</html>

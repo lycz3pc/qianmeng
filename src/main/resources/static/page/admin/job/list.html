@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人才招聘管理</title>
+<!-- <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台"> -->
+<!-- <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术"> -->
+<link rel="shortcut icon" href="favicon.ico">
+<link href="/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+<link href="/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+<link href="/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+<link href="/css/animate.css" rel="stylesheet">
+<link href="/css/style.css?v=4.1.0" rel="stylesheet">
+</head>
+<body>
+	<div>
+		<div>
+			<div id="toolbar">
+				<button id="add" type="button" class="btn btn-outline btn-default" title="新增">
+					<i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+				</button>
+				<form id="searchForm" class="form-inline pull-right">
+					<select id="searchCategory" name="searchCategory" class="form-control" ></select>
+				</form>
+			</div>
+			<table id="dataTable"></table>
+		</div>
+	</div>
+	
+	<div id="editLayer" style="display: none;">
+		<div class="ibox-content">
+			<form id="editForm" class="form-horizontal">
+			    <div class="form-group"><input id="id" name="id" type="hidden"></div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">所属类型：</label>
+					<div class="col-sm-10">
+						<select name="categoryId" class="form-control m-b"></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">职位名称：</label>
+					<div class="col-sm-10">
+						<input name="jobName" class="form-control" type="text">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">工作地点：</label>
+					<div class="col-sm-10">
+						<input name="jobCity" class="form-control" type="text">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">职位需求：</label>
+					<div class="col-sm-10"> 
+						<script id="ueditor" name="jobDetail" type="text/plain"></script>
+					</div>
+				</div>
+				
+			</form>
+		</div>
+	</div>
+	
+	<!-- 全局js -->
+	<script src="/plugins/jquery.min.js?v=2.1.4"></script>
+	<script src="/plugins/bootstrap.min.js?v=3.3.6"></script>
+	<script src="/plugins/layer/layer.min.js"></script>
+	<script src="/plugins/validate/jquery.validate.min.js"></script>
+	<script src="/plugins/validate/messages_zh.min.js"></script>
+	<!-- 配置文件 -->
+    <script type="text/javascript" src="/plugins/ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="/plugins/ueditor/ueditor.all.js"></script>
+    
+	<!-- 自定义js -->
+	<script src="/javascript/form_validate.js"></script>
+	<script src="/javascript/admin/job.js?v=1.0"></script>
+	<script src="/javascript/base_list.js?v=1.0.0"></script>
+
+	<!-- Bootstrap table -->
+	<script src="/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+	<script src="/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+	<script src="/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+</body>
+</html>

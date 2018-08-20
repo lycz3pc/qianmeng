@@ -1,0 +1,10 @@
+server:
+    port: 8088
+web:
+  upload-path: D:/WorkSpace/upload
+spring:
+  datasource:
+    druid:
+      username: root
+      password: 123456
+      url: jdbc:mysql://192.168.1.254:3306/qianmeng?useUnicode=true&characterEncoding=UTF-8

@@ -1,0 +1,61 @@
+	
+	<div class="top">
+		<a href="/" class="qm_logo "><img src="/images/qm_logo.png" alt=""></a>
+		<ul class="top_nav clearfix">
+		
+			<li <#if nav_select == 'about'> class="nav_selected" </#if> >
+				<a href="/qm/introduction">关于千盟</a>
+				<ul class="about_list">
+					<li><a href="/qm/introduction">公司简介</a></li>
+					<li><a href="/subcompany/list">分公司</a></li>
+					<li><a href="/joinus">人才招聘</a></li>
+				</ul>
+			</li>
+			<li <#if nav_select == 'service'> class="nav_selected" </#if>><a href="/qm/service">我们的服务</a>
+				<ul class="about_list">
+					<li><a href="/qm/service#purchase">材料产品采购服务</a></li>
+					<li><a href="/qm/service#construction">工程施工服务</a></li>
+					<li><a href="/qm/service#design">设计服务</a></li>
+					<li><a href="/qm/service#cost">造价咨询</a></li>
+					<li><a href="/qm/service#park">园林风水</a></li>
+				</ul>
+			</li>
+			<li <#if nav_select == 'joinplat'> class="nav_selected" </#if>><a href="/qm/joinplat">平台入驻 </a>
+				<ul class="about_list">
+					<li><a href="/qm/joinplat#purchase">供应商入驻</a></li>
+					<li><a href="/qm/joinplat#design">设计团队入驻</a></li>
+					<li><a href="/qm/joinplat#construction">施工团队入驻</a></li>
+					<li><a href="/qm/joinplat#repair">维护保养团队入驻</a></li>
+				</ul>
+			</li>
+			<li <#if nav_select == 'showteam'> class="nav_selected" </#if>><a href="/personnel/showteam">团队展示</a>
+				<ul class="about_list">
+					<#list categoryList as category>
+					   <#if category.categoryColumn == 'personnel'>
+						<li><a href="/personnel/showteam/${category.id}">${category.categoryName !''}</a></li>
+						</#if>
+					</#list>
+				</ul>
+			</li>
+			<li <#if nav_select == 'example'> class="nav_selected" </#if>><a href="/case/example">精品案例</a>
+				<ul class="about_list">
+					<#list categoryList as category>
+					   <#if category.categoryColumn == 'case'>
+						<li><a href="/case/example/${category.id}">${category.categoryName !''}</a></li>
+						</#if>
+					</#list>
+				</ul>
+			</li>
+			<li <#if nav_select == 'joinsum'> class="nav_selected" </#if>><a href="/qm/joinsum">招商加盟</a></li>
+			<li <#if nav_select == 'news'> class="nav_selected" </#if>><a href="/article/news">新闻动态</a>
+				<ul class="about_list">
+					<#list categoryList as category>
+					   <#if category.categoryColumn == 'article'>
+						<li><a href="/article/news/${category.id}">${category.categoryName !''}</a></li>
+						</#if>
+					</#list>
+				</ul>
+			</li>
+		</ul>
+		<a href="javascript:;" class="hot_line"><img src="/images/telephone1.png" alt=""></a>
+	</div>

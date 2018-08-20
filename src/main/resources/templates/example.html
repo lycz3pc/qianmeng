@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1"/>
+	<title><#if category ??>${category.categoryName !''} - </#if>精品案例 - 千盟园景</title>
+	<meta content="" name="keywords" />
+	<meta content="" name="description" />
+	<!–[if lt IE9]> 
+		<script src="/plugins/html5.js"></script>
+	<![endif]–>
+	<link rel="stylesheet" href="/css/front/common.css">
+	<link rel="stylesheet" href="/css/front/main.css">
+</head>
+<body>
+	<#include 'header.html'>
+	<div class="center">
+		<div class="top_banner">
+			<img src="/images/al_banner.jpg" alt="">
+		</div>
+		<div class="team" id="team_show">
+			<ul class="team_name set_center clearfix">
+				<#list categories as category>
+					<li <#if categoryId?? &&  categoryId == category.id> class="tl_selected" </#if> id="${category.id}"><a href="/case/example/${category.id}">${category.categoryName !''}</a></li>
+				</#list>
+			 
+			</ul>
+			<ul class="team_member set_center" id="example">
+					<#if (casePage.records?size>0)>
+					<li class="ct_selected">
+							<ul class="clearfix">
+								<#list casePage.records as case>
+								<li>
+									<a href="/case/detail/${case.id !''}"><img src="${case.caseImage !''}" alt=""></a>
+									<a href="/case/detail/${case.id !''}">${case.caseName !''}</a>
+								</li>
+								</#list>
+							</ul>
+						<div id="page" class="page_div"></div>
+					</li>
+					<#else>
+					<li class="ct_selected" style="height:400px">
+						<h6>抱歉,暂无数据</h6>
+						<img src="/images/error.png" alt="" class="error_img">
+					</li>
+					</#if>
+			</ul>
+		</div>
+	</div>
+	
+	<#include 'footer.html'>
+</body>
+<script src="/plugins/jquery.min.js"></script>
+<script src="/plugins/paging.js"></script>
+<script src="/javascript/front/common.js"></script>
+<!-- <script src="/javascript/front/example.js"></script> -->
+<script >
+	$("#page").paging({
+			pageNo:${casePage.current},
+			totalPage: ${casePage.pages},
+			totalSize: ${casePage.total},
+			callback: function(num) {
+				 //alert(num)
+				window.location.href="/case/example/${categoryId}?current="+num+"&size=9";
+			}
+		});
+</script>
+</html>

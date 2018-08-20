@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>文章管理</title>
+	<link href="/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+	<link href="/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+	<link href="/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+	<link href="/css/style.css?v=4.1.0" rel="stylesheet">
+	<link href="/plugins/webuploader/webuploader.css" rel="stylesheet">
+</head>
+<body>
+	<div>
+		<div>
+			<div id="toolbar" class="btn-group hidden-xs">
+				<button id="addArticle" type="button" class="btn btn-outline btn-default">
+					<i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+				</button>
+				<form id="searchForm" class="form-inline pull-right">
+					<select name="category_id" class="form-control" >
+						<option value="">全部分类</option>
+					</select>
+			
+					<select name="status" class="form-control" >
+						<option value="">是否显示</option>
+						<option value="1">是</option>
+						<option value="0">否</option>
+					</select>
+				</form>
+			</div>
+			<table id="dataTable"></table>
+		</div>
+	</div>
+	
+		<div class="ibox-content" id="editLayer" style="display:none;">
+			<form id="editForm" class="form-horizontal m-t">
+				<div class="form-group">
+					<input name="id" type="hidden">
+				</div> 
+				<div class="form-group">
+					<label class="col-sm-2 control-label">分类：</label>
+					<div class="col-sm-10">
+                    	<select id="categoryId" name="categoryId" class="form-control" >
+							<option value="">请选择</option>
+						</select>
+                    </div>
+                </div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">标题：</label>
+					<div class="col-sm-10">
+                   	     <input id="title" name="title" class="form-control" placeholder="请输入标题" type="text" >
+                    </div>
+                </div>
+                <div class="form-group">
+					<label class="col-sm-2 control-label">副标题：</label>
+					<div class="col-sm-10">
+                    	<input id="subtitle" name="subtitle" class="form-control" placeholder="请输入副标题"  type="text" >
+                    </div>
+                </div>
+                <div class="form-group">
+					<label class="col-sm-2 control-label">摘要：</label>
+					<div class="col-sm-10">
+                    	<textarea id="summary" name="summary" class="form-control" rows="4"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+					<label class="col-sm-2 control-label">来源：</label>
+					<div class="col-sm-10">
+                    	<input name="source" class="form-control" placeholder="请输入来源"  type="text" >
+                    </div>
+                </div>
+                <div class="form-group">
+					<label class="col-sm-2 control-label">封面图片：</label>
+					<div class="col-sm-10 input-group" >
+						<div id="uploader" style="padding-left: 14px;">
+							<!--用来存放item-->
+							<div id="fileList" class="uploader-list"></div>
+							<div id="filePicker" >选择图片</div>
+						</div>
+						<input name="image" style="display: none;" type="text">
+					</div>
+                </div>
+                <div class="form-group">
+					<label class="col-sm-2 control-label">内容：</label>
+					<div class="col-sm-10 input-group">
+						<div class="ibox float-e-margins" style=" padding-left: 12px">
+							<div id="ibox-title">
+								<script id="ueditor" name="content" type="text/plain"></script>
+							</div>
+						</div>
+					</div>
+				</div>
+                <div class="form-group">
+					<label class="col-sm-2 control-label">作者：</label>
+					<div class="col-sm-10">
+                    	<input name="author" class="form-control" placeholder="请输入作者"  type="text" >
+                    </div>
+                </div>
+                <div class="form-group">
+                	<label class="col-sm-2 control-label">状态：</label>
+                	<div class="col-sm-10">
+						<label class="radio-inline">
+					       <input type="radio" value="1" name="status" checked>显示
+					    </label>
+					    <label class="radio-inline">
+					       <input type="radio" value="0" name="status">隐藏
+					    </label>
+				    </div>
+                </div>
+			</form>
+		</div>
+	<!-- 全局js -->
+	<script src="/plugins/jquery.min.js?v=2.1.4"></script>
+	<script src="/plugins/bootstrap.min.js?v=3.3.6"></script>
+	<script src="/plugins/layer/layer.min.js"></script>
+	<script src="/plugins/webuploader/webuploader.js"></script>
+	<script src="/plugins/validate/jquery.validate.min.js"></script> 
+	<script src="/plugins/validate/messages_zh.min.js"></script> 
+	<!-- 配置文件 -->
+    <script type="text/javascript" src="/plugins/ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="/plugins/ueditor/ueditor.all.js"></script>
+    <!-- 自定义js -->
+	<script src="/javascript/form_validate.js"></script> 
+	<script src="/javascript/admin/article.js"></script>
+	<script src="/javascript/base_list.js?v=1.0.0"></script>
+	<!-- Bootstrap table -->
+	<script src="/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+	<script src="/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+	<script src="/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1"/>
+	<title>${case.caseName !''} -精品案例 - 千盟园景</title>
+	<meta content="" name="keywords" />
+	<meta content="" name="description" />
+	<link rel="stylesheet" href="/css/front/common.css">
+	<link rel="stylesheet" href="/css/front/fa/iconfont.css">
+	<link rel="stylesheet" href="/css/front/main.css"/>
+</head>
+<body>
+	<!--头-->
+    <#include 'header.html'>
+	<div></div>
+	<!--中间部分-->
+	<div class="center" id="sample">
+		<!--内容-->
+		<div class="set_center">			
+			<!--面包屑-->
+			<ul class="breadcrumb clearfix">
+                <li>
+                    <a href="/">首页</a> <i class="iconfont icon-arrowright"></i>
+                </li>
+                <li>
+                    <a href="/case/example">精品案例</a> <i class="iconfont icon-arrowright"></i>
+                </li>
+                <li>
+                    <a href="/case/example/${case.categoryId !''}">${case.categoryName !''}</a> <i class="iconfont icon-arrowright"></i>
+                </li>
+                <li class="active">详情</li>
+            </ul>
+			<!--地址-->
+			<div class="adder clearfix">
+				<div class="fl">
+					<img  src="${case.caseImage !''}" width="429" height="313"/>
+				</div>
+				<div class="right_adder">
+					<ul>
+						<li>项目地点：<span>${case.caseAddress !''}</span></li>
+						<li>业主单位：<span>${case.caseCompany !''}</span></li>
+						<li>项目规模：<span>${case.caseScale !''}</span></li>
+						<li>施工时间：<span>${case.caseDate !''}</span></li>
+						<!-- <li>园林以人居、亲水为主题，创造了“两轴多景”的立体景观；2万平米超大中央园林已奢美呈现，3000平米喷泉水景面世。</li> -->
+					</ul>
+				</div>
+			</div>
+			
+			<!--介绍-->
+			<div class="introduce">
+				<div class="intro_title">工程介绍</div>
+				<div class="intro_box">
+					${case.caseIntro !''}
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 漂浮框 -->
+		<div class="float_box">
+			<ul class="info_box">
+				<li><a href="javascript:;"><img src="/images/r_top_1.png" alt=""></a></li>
+				<li><a href="javascript:;"><img src="/images/r_phone_2.png" alt=""></a></li>
+				<li><a href="javascript:;"><img src="/images/r_ewm_3.png" alt=""></a></li>
+			</ul>
+			<ul class="open_box">
+				<li class="top_floor">
+					<a href="javascript:;">置顶</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img src="/images/r_phone_22.png" alt="">
+						<span>0731-88008866</span>
+						<div id="contact_line"><span>服务</span><span>热线</span></div>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<p>扫描二维码</p>
+						<p>关注微信公众号</p>
+						<img src="/images/erweima.png" alt="">
+					</a>
+					<div id="weixin"><span>官方</span><span>微信</span></div>
+				</li>
+			</ul>
+		</div>
+	<!--尾-->
+    <#include 'footer.html'>
+</body>
+<script src="/plugins/jquery.js"></script>
+<script src="/javascript/front/common.js"></script>
+</html>

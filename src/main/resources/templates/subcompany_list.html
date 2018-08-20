@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1"/>
+	<title>分公司 - 千盟园景</title>
+	<meta content="" name="keywords" />
+	<meta content="" name="description" />
+	<!–[if lt IE9]> 
+		<script src="/plugins/html5.js"></script>
+	<![endif]–>
+	<link rel="stylesheet" href="/css/front/common.css">
+	<link rel="stylesheet" href="/css/front/fa/iconfont.css">
+	<link rel="stylesheet" href="/css/front/main.css">
+</head>
+<body>
+    <#include 'header.html'>
+    
+	<div class="center" id="subscribe">
+		<div class="top_banner">
+			<img src="/images/gyqm_banne1r.jpg" alt="">
+		</div>
+		<div class="set_center sub_com" id="news">
+			<ul class="view_top clearfix" id="view_top">
+				<li>省份： </li>
+				<li <#if !(province??)> class="job_choosed" </#if>><a href="/subcompany/list">全国</a></li>
+				<#if provinceList?exists>
+					<#list provinceList as item>
+						<li <#if province?? && (province == item.province)> class="job_choosed" </#if>><a href="/subcompany/list/${item.province !''}">${item.province !''}</a></li>
+					</#list>
+				</#if>
+<!-- 		        <li id="add_more"><a href="javascript:;">更多<i class="iconfont icon-arrow-down"></i></a></li>   --> 
+			</ul>
+			<ul class="team_member set_center" id="new_about">
+				<li class="ct_selected">
+					<ul class="clearfix">
+					    <#if subcompanyList?exists>
+					    <#list subcompanyList as subcompany>
+						    <li>
+								<a href="/subcompany/detail/${subcompany.id}"><img src="${subcompany.picture !''}" alt=""></a>
+								<div>
+									<h1><a href="javascript:;">${subcompany.name !''}</a></h1>
+									<span class="span_overhide">${subcompany.summary !''}</span>
+									<a href="/subcompany/detail/${subcompany.id}" class="sub_detail">查看详情<i class="iconfont icon-arrowright"></i></a>
+								</div>
+							</li>
+					    </#list>
+					    </#if>
+					</ul>
+<!--				<p class="check_more"><a href="javascript:;">加载更多</a></p> -->
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<#include 'footer.html'>
+</body>
+<script src="/plugins/jquery.min.js"></script>
+<script src="/javascript/front/common.js"></script>
+<script src="/javascript/front/about_sub.js"></script>
+</html>

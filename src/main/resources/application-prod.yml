@@ -1,0 +1,13 @@
+#端口号
+server:
+    port: 8088
+#文件路径
+web:
+  upload-path: /alidata/www/qianmeng
+#数据库配置
+spring:
+  datasource:
+    druid:
+      username: root
+      password: 123456
+      url: jdbc:mysql://127.0.0.1:3306/qianmeng?useUnicode=true&characterEncoding=UTF-8

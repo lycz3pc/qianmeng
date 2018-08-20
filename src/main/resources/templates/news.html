@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1"/>
+	<title>新闻动态 - 千盟园景</title>
+	<meta content="" name="keywords" />
+	<meta content="" name="description" />
+	<!–[if lt IE9]> 
+		<script src="/plugins/html5.js"></script>
+	<![endif]–>
+	<link rel="stylesheet" href="/css/front/common.css">
+	<link rel="stylesheet" href="/css/front/fa/iconfont.css">
+	<link rel="stylesheet" href="/css/front/main.css">
+</head>
+<body>	
+	<#include 'header.html'>
+	<div class="center" id="news">
+		<div class="top_banner">
+			<img src="/images/dt_banner.jpg" alt="">
+		</div>
+		<div class="team" id="team_show">
+			<ul class="team_name set_center clearfix">
+				<#list categories as category>
+					<li  <#if categoryId?? &&  categoryId == category.id> class="tl_selected" </#if> id="${category.id}"><a href="/article/news/${category.id}">${category.categoryName}</a></li>
+				</#list>
+			</ul>
+			<ul class="team_member set_center" id="new_about">
+				<#list categories as category>
+				<li <#if category_index == 0> class="ct_selected" </#if>>
+					<ul class="clearfix">
+						<#if (articlePage.records?size>0)>
+							<#list articlePage.records as article>
+							<li>
+								<a href="/article/detail/${article.id !''}"><img src="${article.image !''}" alt=""></a>
+								<div>
+									<h1><a href="/article/detail/${article.id !''}">${article.title !''}</a></h1>
+									<span class="span_overhide">${article.summary !''}</span>
+									<p>
+										<a href="/article/detail/${article.id !''}"><i class="iconfont icon-person-fill"></i>${article.author !''}</a>
+										<a href="/article/detail/${article.id !''}"><i class="iconfont icon-icon-time"></i>${article.updateTime?string('yyyy-MM-dd HH:mm') !''}</a>
+									</p>
+								</div>
+							</li>
+							</#list>
+					</ul>
+					<div id="page" class="page_div"></div>
+					</#if>
+				</li>
+				</#list>
+				<!-- <li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li> -->
+			</ul>
+		</div>
+		<!-- 漂浮框 -->
+		<div class="float_box">
+			<ul class="info_box">
+				<li><a href="javascript:;"><img src="/images/r_top_1.png" alt=""></a></li>
+				<li><a href="javascript:;"><img src="/images/r_phone_2.png" alt=""></a></li>
+				<li><a href="javascript:;"><img src="/images/r_ewm_3.png" alt=""></a></li>
+			</ul>
+			<ul class="open_box">
+				<li class="top_floor">
+					<a href="javascript:;">置顶</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img src="/images/r_phone_22.png" alt="">
+						<span>0731-88008866</span>
+						<div id="contact_line"><span>服务</span><span>热线</span></div>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<p>扫描二维码</p>
+						<p>关注微信公众号</p>
+						<img src="/images/erweima.png" alt="">
+					</a>
+					<div id="weixin"><span>官方</span><span>微信</span></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<#include 'footer.html'>
+</body>
+<script src="/plugins/jquery.min.js"></script>
+<script src="/plugins/paging.js"></script>
+<script src="/javascript/front/news.js"></script>
+<script >
+	$("#page").paging({
+			pageNo:${articlePage.current},
+			totalPage: ${articlePage.pages},
+			totalSize: ${articlePage.total},
+			callback: function(num) {
+				window.location.href="/article/news<#if categoryId??>/${categoryId}</#if>?current="+num+"&size=9";
+			}
+		});
+</script>
+</html>
